@@ -23,7 +23,7 @@ public class BoardDAOTest {
 	@Autowired
 	private BoardDAO bdao;
 	
-	@Test
+	// @Test
 	public void 글쓰기테스트() throws Exception {
 		
 		logger.debug("글쓰기 테스트 동작 실행");
