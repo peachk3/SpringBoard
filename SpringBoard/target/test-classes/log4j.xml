@@ -12,8 +12,14 @@
 	
 	<!-- Application Loggers -->
 	<logger name="com.itwillbs.controller">
-		<level value="info" />
+		<level value="debug" />
 	</logger>
+	<logger name="com.itwillbs.persistence">
+		<level value="debug" />
+	</logger>
+	<logger name="com.itwillbs.service">
+		<level value="debug" />
+	</logger>r>
 	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
