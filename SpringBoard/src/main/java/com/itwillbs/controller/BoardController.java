@@ -46,7 +46,8 @@ public class BoardController {
 		bService.regist(vo);
 		
 		// 페이지 이동
-		return "redirect:/board/list";
+		return "redirect:/board/list";  // -> 새로고침시 발생하는 양식 제출 문제 해결 (redirect)
+		// return "/board/list";
 	
 	}
 	
