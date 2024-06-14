@@ -2,6 +2,8 @@
 <%@ include file="../include/header.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 <h1>/board/list.jsp</h1>
 	
@@ -39,6 +41,29 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<!-- modal 창 -->
+		<div class="modal fade" id="myModal" style="display: none;">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">×</span>
+						</button>
+						<h4 class="modal-title">아이티윌 게시판</h4>
+					</div>
+					<div class="modal-body">
+						<p>확인할 내용</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<!-- modal 창 -->
 	</div>
 
 	<div class="box-footer clearfix">
@@ -52,6 +77,9 @@
 	</div>
 </div>
 
+
+
+
 <!-- Jquery 사용 -->
 <script>
 	$(document).ready(function(){
@@ -64,14 +92,16 @@
 // 		var a = 10;
 // 		alert(a);
 // 		alert(abc);
-		
-		var result = "${msg}";
-		
-		if(result == "createOk") {
-			alert("글쓰기 완료! 리스트 페이지로 이동");
+
+	var result = "${msg}";
+
+		if (result == "createOk") {
+			// 			alert("글쓰기 완료! 리스트 페이지로 이동");
+			$("#myModal").modal("show");
+
 		}
-		
-		
+		Swal.fire("아이티윌 테스트!");
+
 	});
 </script>
 
