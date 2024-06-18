@@ -35,5 +35,10 @@
 		where bno=#{bno}
 	</update>
 	
+	<!-- 글 정보 삭제 -->
+	<delete id="deleteBoard">
+		delete from tbl_board
+		where bno=#{bno}
+	</delete>
 	
 </mapper>

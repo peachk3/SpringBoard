@@ -149,6 +149,22 @@ public class BoardController {
 		return "redirect:/board/listALL";
 	}
 	
+	@RequestMapping(value="/delete", method = RequestMethod.POST)
+	public String deletePOST(@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception {
+		logger.debug("deleteGET() 실행");
+		
+		logger.debug(" 삭제할 글 번호 : {} ", bno);
+		
+		// 서비스 - DAO 글 삭제 동작
+		bService.deleteBoard(bno);
+		
+		// 전달정보 저장
+		
+		rttr.addFlashAttribute("msg", "deleteOk");
+
+		// 페이지 이동
+		return "redirect:/board/listALL";
+	}
 	
 	
 	

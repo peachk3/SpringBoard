@@ -107,6 +107,10 @@
 		if (result == "updateOk"){
 			Swal.fire("게시판 글 수정 완료!")
 		}
+		
+		if (result == "deleteOk"){
+			Swal.fire("게시판 글 삭제 완료!")
+		}
 	});
 </script>
 
