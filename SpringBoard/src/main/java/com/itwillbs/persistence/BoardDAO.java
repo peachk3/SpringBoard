@@ -15,9 +15,10 @@ public interface BoardDAO {
 
 	// 게시글 조회수 1 증가
 	public void updateReadCnt(int bno) throws Exception;
-
 	
 	public BoardVO getBoard(int bno) throws Exception;
+
+	public void updateBoard(BoardVO vo) throws Exception;
 	
 	
 	

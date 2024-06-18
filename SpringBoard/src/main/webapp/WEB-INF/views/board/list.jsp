@@ -104,6 +104,9 @@
 		}
 		Swal.fire("아이티윌 테스트!");
 
+		if (result == "updateOk"){
+			Swal.fire("게시판 글 수정 완료!")
+		}
 	});
 </script>
 

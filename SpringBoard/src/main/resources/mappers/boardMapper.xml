@@ -29,4 +29,11 @@
 		where bno=#{bno}
 	</select>
 	
+	<!-- 글 업데이트 -->
+	<update id="updateBoard">
+		update tbl_board set title=#{title}, writer=#{writer}, content=#{content}
+		where bno=#{bno}
+	</update>
+	
+	
 </mapper>
