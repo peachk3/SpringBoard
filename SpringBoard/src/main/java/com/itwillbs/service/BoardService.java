@@ -19,7 +19,10 @@ public interface BoardService {
 	public BoardVO getBoard(int bno) throws Exception;
 
 	// 특정 bno의 글정보 수정하기
-	public void updateBoard(BoardVO vo) throws Exception; 
+	public void updateBoard(BoardVO vo) throws Exception;
+
+	// 특정 bno의 글 삭제하기
+	public void deleteBoard(int bno) throws Exception; 
 	
 	
 	
