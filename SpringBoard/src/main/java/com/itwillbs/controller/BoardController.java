@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.itwillbs.domain.BoardVO;
 import com.itwillbs.domain.Criteria;
+import com.itwillbs.domain.PageVO;
 import com.itwillbs.service.BoardService;
 
 @Controller
@@ -90,9 +91,16 @@ public class BoardController {
 		// 서비스 -> DB의 정보를 가져오기 (페이징 처리)
 		List<BoardVO> boardList = bService.listPage(cri);
 		logger.debug(" size : " + boardList.size());
+		
+		// 하단 페이징처리 정보
+		PageVO pageVO = new PageVO();
+		pageVO.setCri(cri);
+		// pageVO.setTotalCount(1408);
+		pageVO.setTotalCount(bService.getTotalCount());
 		 
 		// 연결된 뷰페이지로 정보 전달 -> model 생성
 		model.addAttribute("boardList", boardList);
+		model.addAttribute("pageVO", pageVO);
 		
 		return"/board/list";
 	}

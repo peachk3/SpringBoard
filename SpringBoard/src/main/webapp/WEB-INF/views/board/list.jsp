@@ -8,7 +8,7 @@
 <h1>/board/list.jsp</h1>
 	
 <%-- 	${boardList } --%>
-
+${pageVO }
 전달 정보 : ${msg } <hr>
 
 <div class="box">
@@ -70,11 +70,21 @@
 
 	<div class="box-footer clearfix">
 		<ul class="pagination pagination-sm no-margin pull-right">
-			<li><a href="#">«</a></li>
-			<li><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">»</a></li>
+		
+		<c:if test="${pageVO.prev }">
+			<li><a href="/board/listPage?page=${pageVO.endPage-1 }">«</a></li>
+		</c:if>
+			
+			<c:forEach var="i" begin="${pageVO.startPage }" end="${pageVO.endPage }" step="1">
+				<li ${pageVO.cri.page == i? 'class="active"':'' }>
+					<a href="/board/listPage?page=${i }">${i }</a>
+				</li>			
+			</c:forEach>
+			
+		<c:if test="${pageVO.next && pageVO.endPage > 0 }">		
+			<li><a href="/board/listPage?page=${pageVO.endPage+1 }">»</a></li>
+		</c:if>
+		
 		</ul>
 	</div>
 </div>
@@ -99,10 +109,10 @@
 
 		if (result == "createOk") {
 			// 			alert("글쓰기 완료! 리스트 페이지로 이동");
-			$("#myModal").modal("show");
+// 			$("#myModal").modal("show");
 
-		}
 		Swal.fire("아이티윌 테스트!");
+		}
 
 		if (result == "updateOk"){
 			Swal.fire("게시판 글 수정 완료!")
