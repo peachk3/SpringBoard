@@ -31,7 +31,7 @@ ${pageVO }
 					<tr>
 						<td>${vo.bno }</td>
 						<td>
-							<a href="/board/read?bno=${vo.bno }">${vo.title }</a> <!-- 다음 페이지에 제목 bno 가져가기 -->
+							<a href="/board/read?bno=${vo.bno }&page=${param.page==null? 1: param.page}">${vo.title }</a> <!-- 다음 페이지에 제목 bno 가져가기 -->
 						</td>
 						<td>${vo.writer }</td>
 						<td>${vo.content }</td>
