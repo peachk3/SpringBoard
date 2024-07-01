@@ -25,6 +25,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import net.coobird.thumbnailator.Thumbnails;
+
 @Controller
 public class FileUploadController {
 
@@ -143,6 +145,22 @@ public class FileUploadController {
 		// 다운로드할 파일 생성
 		File file = new File(downFile);
 		
+		/*******************************썸네일 생성**********************************/
+		int lastIdx = fileName.lastIndexOf(".");
+		String thumbName = fileName.substring(0, lastIdx);
+		
+		File thumbnail = new File(req.getRealPath(FAKE_PATH)+"\\" + "thumbnail"+"\\" + thumbName + ".png");
+		
+		if(file.exists()) {
+			// 썸네일 폴더 생성 -> 썸네일 이미지 파일 생성
+//			thumbnail.getParentFile().mkdirs();
+//			Thumbnails.of(file).forceSize(50, 50).outputFormat("png").toFile(thumbnail);
+			
+			// 썸네일을 출력
+			Thumbnails.of(file).size(100, 100).outputFormat("png").toOutputStream(out);
+			
+		}
+		/****************************************************************************/
 		// 다운로드에 필요한 설정
 		resp.setHeader("Cache-Control", "no-cahe");
 //		resp.addHeader("Content-disposition", "attachment; fileName=" + fileName);
