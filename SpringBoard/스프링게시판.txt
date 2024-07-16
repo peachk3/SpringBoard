@@ -87,4 +87,26 @@
      
      
    
+07/03(수)
+   	<!-- 메일 전송에 필요한 정보 -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	
+		메일 전공에 필요한 기본 설정
+		<property name="host" value="smtp.gmail.com"/>
+		<property name="port" value="587"/>
+		<property name="username" value="bnana0621@gmail.com"/>
+		<property name="password" value="ajewyicrsfowklvr"/>
+	
+		메일 전송에 필요한 프로토콜에 저장되는 정보
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	
+	</bean>
    
